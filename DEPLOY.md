@@ -1,6 +1,6 @@
 # Put Paper Trails online for free
 
-This project is configured for **Render Free + a Turso libSQL Free database**. The Turso database is connected through the ignored local `.env` file and has passed the cloud letter-flow check. The web app has not been published yet. Choose only the free plans; do not enable a paid plan, paid disk, or paid database. If a provider asks you to add a payment method, stop before submitting it.
+This project is deployed at **https://paper-trails-o6a8.onrender.com** using **Render Free + a Turso libSQL Free database**. The local Turso connection is in the ignored `.env` file; the hosted connection is in Render's environment settings. The deployment is managed by the private repository's `render.yaml`. No paid resources or payment method were added. Choose only the free plans; do not enable a paid plan, paid disk, or paid database. If a provider asks you to add a payment method, stop before submitting it.
 
 ## 1. Create the database
 
@@ -59,7 +59,7 @@ Render supplies `PORT`; do not hardcode it. The app refuses to start on Render w
 4. Follow the dotted route in **On the journey**, wait for delivery, and open it from the second account.
 5. Restart the Render service and sign in again. The accounts, letters, drafts, and delivery timestamps should still be present in Turso.
 
-The automated checks cover this data flow locally and test the Turso HTTP client with a simulated transport. The real Turso connection has also passed `npm run verify:cloud`: registration, draft saving, atomic posting, sealed delivery, persistence after an app restart, arrival, read receipts, and keepsakes. This command creates two temporary test accounts and removes their own test records afterward; it does not print credentials. The final hosted web URL still needs its own verification after deployment.
+The automated checks cover this data flow locally and test the Turso HTTP client with a simulated transport. The real Turso connection has also passed `npm run verify:cloud`: registration, draft saving, atomic posting, sealed delivery, persistence after an app restart, arrival, read receipts, and keepsakes. This command creates two temporary test accounts and removes their own test records afterward; it does not print credentials. The public HTTPS website passed a separate end-to-end check on 1 November 2026: secure sessions, draft saving, posting, one-minute delivery, opening, read receipts, and keepsakes. The temporary hosted verification accounts and letter were removed afterward. The sign-in page, database health, map assets, and blocked `.env` access were also verified.
 
 ## Optional: copy existing local accounts and letters
 

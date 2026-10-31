@@ -2,6 +2,8 @@
 
 A slower, more thoughtful corner of the internet. Write digital letters, decorate their envelopes, and let them travel through virtual post offices before they arrive.
 
+**Live website:** https://paper-trails-o6a8.onrender.com — hosted on Render Free, with persistent data in Turso Free. Create an account to get your own postal address. A sleeping free instance can take around a minute to wake up.
+
 ## Open the post office
 
 Requires **Node.js 24**. Install the database client once with `npm ci`. Local use needs no external service or API key; optional cloud storage uses your Turso database URL and token.
@@ -51,7 +53,7 @@ Choose **Create your own postal address**. Register with a name, unique username
 
 The site runs a Node HTTP server with a persistent SQLite database at `data/paper-trails.sqlite` by default. Set `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` to store accounts, drafts, letters, and sessions in Turso instead. Both modes preserve data across server restarts. Arrival is determined by timestamps: no background scheduler is required. Letters arrive even while the server is stopped and become available the next time it starts. Closing a browser does not delete letters.
 
-The server listens only on this computer by default. **It has not been published online.** Friends outside this computer need a hosted instance with HTTPS and a persistent writable disk. All users must use that same instance. No email or push notifications are sent.
+The local server listens only on this computer by default. Friends can use the live HTTPS website above; all users must use the same instance to exchange letters. Hosted data is stored in Turso rather than the hosting server's temporary files. No email or push notifications are sent.
 
 ## Checks
 
@@ -107,6 +109,6 @@ Checked against the providers' documentation on 31 October 2026:
 
 **The current SQLite file cannot be used as durable storage on Render Free.** Its local filesystem is temporary, free services sleep after 15 idle minutes, and the free Render Postgres offering expires after 30 days. Hosting the current files as a static site also cannot run the API.
 
-Render + Turso support is implemented. The included `render.yaml` selects the Free plan, configures HTTPS cookies, disables demo access, and prompts for database credentials. The optional import script copies existing local records into an empty database. See [the complete deployment guide](DEPLOY.md). The Turso connection has been configured and verified through a complete test letter flow; the web app has not been deployed yet.
+Render + Turso is deployed at the live URL above. The included `render.yaml` selects the Free plan, configures HTTPS cookies, disables demo access, and prompts for database credentials. The optional import script copies existing local records into an empty database. See [the complete deployment guide](DEPLOY.md). The database, public HTTPS page, health endpoint, and bundled map assets have been verified. No paid resources or payment method were added.
 
 Provider references: [Render Free](https://render.com/docs/free), [Turso pricing](https://turso.tech/pricing), [Workers pricing](https://developers.cloudflare.com/workers/platform/pricing/), and [D1 pricing](https://developers.cloudflare.com/d1/platform/pricing/). Free plans have usage limits and can change.
