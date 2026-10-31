@@ -1,0 +1,21 @@
+{
+  "name": "paper-trails",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A slower, more thoughtful corner of the internet. Digital letters with a real postal journey.",
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --env-file-if-exists=.env --watch server.js",
+    "db:import": "node --env-file-if-exists=.env scripts/import-to-turso.js",
+    "verify:cloud": "node --env-file-if-exists=.env scripts/verify-turso.js",
+    "test": "node --test test/*.test.js",
+    "check": "node --check server.js && node --check database.js && node --check scripts/import-to-turso.js && node --check public/app.js && node --check public/journey-map.js"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.18.0"
+  }
+}
