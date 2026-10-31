@@ -21,7 +21,7 @@ If using Turso's CLI instead of its dashboard, its documented commands include `
 
 ## 2. Put the source in GitHub
 
-The project source is prepared as a Git repository for private GitHub hosting. Render needs access to the selected repository. If setting up a separate copy of this app, create a private repository and upload only its source.
+The source is in the private repository [ahmedsakib1113/paper-trails](https://github.com/ahmedsakib1113/paper-trails), on branch `main`. Render needs access to this repository. If setting up a separate copy of this app, create a private repository and upload only its source.
 
 Include `package.json`, `package-lock.json`, `server.js`, `database.js`, `render.yaml`, `public/`, `scripts/`, and `test/`. Include `public/maps/cities.json` and `public/maps/land.json`; they are already built.
 
